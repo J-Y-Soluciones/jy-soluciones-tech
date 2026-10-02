@@ -13,12 +13,22 @@ import {
 } from "lucide-react";
 
 export default function Showroom() {
-  const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const copyToClipboard = (text: string, id: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedField(id);
-    setTimeout(() => setCopiedField(null), 2000);
+  // Manejo asíncrono seguro: solo confirma si el navegador copió exitosamente (Corrige H02)
+  const handleCopy = async (text: string, id: string) => {
+    try {
+      if (typeof window !== "undefined" && navigator?.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        setCopiedId(id);
+        setTimeout(() => setCopiedId(null), 2000);
+      } else {
+        throw new Error("API Clipboard no disponible");
+      }
+    } catch (err) {
+      console.error("No se pudo copiar al portapapeles:", err);
+      // Si falla la promesa, no activa el icono de check
+    }
   };
 
   return (
@@ -83,6 +93,8 @@ export default function Showroom() {
                         <Info className="w-3.5 h-3.5 text-brand-blue" />
                         <span>Credenciales para prueba:</span>
                       </div>
+
+                      {/* Copiar Usuario */}
                       <div className="flex justify-between items-center text-slate-700">
                         <span>
                           Usuario:{" "}
@@ -91,21 +103,25 @@ export default function Showroom() {
                           </strong>
                         </span>
                         <button
+                          type="button"
                           onClick={() =>
-                            copyToClipboard(
+                            handleCopy(
                               project.suggestedCredentials!.user,
                               `${project.id}-user`,
                             )
                           }
-                          className="text-brand-blue hover:text-blue-800"
+                          aria-label={`Copiar usuario de acceso para ${project.title}`}
+                          className="p-1 text-brand-blue hover:text-blue-800 rounded focus-visible:outline-2 focus-visible:outline-brand-blue transition-colors"
                         >
-                          {copiedField === `${project.id}-user` ? (
-                            <Check className="w-3.5 h-3.5" />
+                          {copiedId === `${project.id}-user` ? (
+                            <Check className="w-3.5 h-3.5 text-emerald-600" />
                           ) : (
                             <Copy className="w-3.5 h-3.5" />
                           )}
                         </button>
                       </div>
+
+                      {/* Copiar Contraseña */}
                       <div className="flex justify-between items-center text-slate-700">
                         <span>
                           Clave:{" "}
@@ -114,16 +130,18 @@ export default function Showroom() {
                           </strong>
                         </span>
                         <button
+                          type="button"
                           onClick={() =>
-                            copyToClipboard(
+                            handleCopy(
                               project.suggestedCredentials!.pass,
                               `${project.id}-pass`,
                             )
                           }
-                          className="text-brand-blue hover:text-blue-800"
+                          aria-label={`Copiar clave de acceso para ${project.title}`}
+                          className="p-1 text-brand-blue hover:text-blue-800 rounded focus-visible:outline-2 focus-visible:outline-brand-blue transition-colors"
                         >
-                          {copiedField === `${project.id}-pass` ? (
-                            <Check className="w-3.5 h-3.5" />
+                          {copiedId === `${project.id}-pass` ? (
+                            <Check className="w-3.5 h-3.5 text-emerald-600" />
                           ) : (
                             <Copy className="w-3.5 h-3.5" />
                           )}

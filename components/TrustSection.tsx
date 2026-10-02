@@ -3,9 +3,9 @@ import { ServerCrash, DatabaseZap, Headphones } from "lucide-react";
 export default function TrustSection() {
   const trustPoints = [
     {
-      title: "Cero Caídas (99.9% SLA)",
+      title: "Alta Disponibilidad Cloud",
       description:
-        "Arquitectura en la nube serverless y contenedores distribuidos para que el sistema opere en días de alta demanda sin interrupciones.",
+        "Arquitectura en la nube y contenedores distribuidos diseñados para que el sistema opere en días de alta demanda sin interrupciones operativas.",
       icon: ServerCrash,
     },
     {

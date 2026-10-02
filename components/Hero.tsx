@@ -89,8 +89,8 @@ export default function Hero() {
                     cluster-prod-pe.internal
                   </span>
                 </div>
-                <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                  En Vivo
+                <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                  Demo UI
                 </span>
               </div>
 

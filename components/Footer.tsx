@@ -132,14 +132,12 @@ export default function Footer() {
         </div>
 
         {/* Barra inferior de derechos reservados */}
-        <div className="border-t border-slate-900 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 gap-2 text-center sm:text-left">
+        <div className="border-t border-slate-900 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-2 text-center sm:text-left">
           <p>
             © {new Date().getFullYear()} JY Soluciones Tech. Todos los derechos
             reservados.
           </p>
-          <p className="font-mono text-slate-600">
-            Cloud Native • 99.9% SLA Uptime • Lima, PE
-          </p>
+          <p className="text-slate-400">Cloud Architecture • Lima, PE</p>
         </div>
       </div>
     </footer>

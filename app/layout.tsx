@@ -2,25 +2,29 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  // Define la URL pública base para que los previews resuelvan la URL absoluta
+  metadataBase: new URL("https://jy-soluciones-tech.vercel.app"),
   title: "JY Soluciones Tech | Software a Medida & Cloud",
   description:
-    "Desarrollo de sistemas web, control de inventarios, cotizadores rápidos y arquitectura cloud de alta disponibilidad en Lima, Perú.",
+    "Desarrollo de sistemas web, control de inventarios, cotizadores rápidos y arquitectura cloud en Lima, Perú.",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
-    icon: "/favicon.ico?v=2",
-    shortcut: "/favicon.ico?v=2",
-    apple: "/logo-jy.png?v=2",
+    icon: "/favicon.ico",
   },
   openGraph: {
     title: "JY Soluciones Tech | Software a Medida & Cloud",
     description:
       "Impulsamos tu negocio con tecnología y sistemas web a medida.",
-    url: "https://jysoluciones.tech",
+    url: "https://jy-soluciones-tech.vercel.app",
     siteName: "JY Soluciones Tech",
     images: [
       {
         url: "/logo-jy.png",
-        width: 800,
-        height: 600,
+        width: 500,
+        height: 400,
+        alt: "JY Soluciones Tech - Software a Medida",
       },
     ],
     locale: "es_PE",
