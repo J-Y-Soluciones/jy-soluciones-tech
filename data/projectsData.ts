@@ -2,6 +2,28 @@ import { ProjectDemo } from "@/types";
 
 export const projectsData: ProjectDemo[] = [
   {
+    id: "jypos-ferreteria",
+    title: "JYPoS - B2B Ferretería & Lubricentro",
+    category: "Punto de Venta (POS) & Facturación",
+    description:
+      "Plataforma multi-tenant para ferreterías y lubricentros con arqueo ciego de caja, ventas de mostrador de alta velocidad, control de stock fraccionado y gestión de créditos.",
+    badges: [
+      "Fastify",
+      "TypeScript",
+      "PostgreSQL",
+      "Upstash Redis",
+      "Kysely",
+      "Tailwind CSS",
+    ],
+    demoUrl: "https://b2b-ferreteria-demo.vercel.app",
+    suggestedCredentials: {
+      user: "admin@donlucho.pe (o en demo con 1 clic)",
+      pass: "password123",
+    },
+    whatsappText:
+      "Hola JY Soluciones Tech, me interesa implementar un sistema POS y control de inventarios como JYPoS en mi negocio.",
+  },
+  {
     id: "vortexyolti",
     title: "VortexYolTI - Taller & Autopartes",
     category: "Gestión Comercial & Almacén",
